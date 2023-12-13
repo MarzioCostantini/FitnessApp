@@ -1,0 +1,17 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 30px;
+  box-shadow: 18px 4px 35px rgba(0, 0, 0, 0.068);
+}
+
+header div {
+  display: flex;
+  flex-direction: column;
+}
+
+header p {
+  font-size: 14px;
+  margin-right: 5vw;
+}

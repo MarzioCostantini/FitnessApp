@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="29.5" viewBox="0 0 35 29.5">
+  <g id="Gruppe_27" data-name="Gruppe 27" transform="translate(-3 -5)">
+    <path id="Pfad_64" data-name="Pfad 64" d="M13,13V30.875" transform="translate(3.375 2.625)" fill="none" stroke="#202020" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+    <path id="Pfad_65" data-name="Pfad 65" d="M4,13H37" transform="translate(0 2.625)" fill="none" stroke="#202020" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+    <path id="Pfad_66" data-name="Pfad 66" d="M35.625,6H5.375A1.375,1.375,0,0,0,4,7.375v24.75A1.375,1.375,0,0,0,5.375,33.5h30.25A1.375,1.375,0,0,0,37,32.125V7.375A1.375,1.375,0,0,0,35.625,6Z" fill="none" stroke="#202020" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+  </g>
+</svg>

@@ -1,0 +1,118 @@
+.shadow {
+  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.input-area {
+  grid-area: 1 / 10 / 13 / 13;
+}
+
+.preview {
+  grid-area: 1 / 1 / 13 / 10;
+  border-right: 3px solid var(--light-gray);
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preview article {
+  border: 1px solid rgb(240, 240, 240);
+  border-radius: 40px;
+  height: 25vw;
+  width: 25vw;
+}
+
+.preview h4 {
+  font-size: clamp(1.8rem, 2vw, 3rem);
+  color: var(--light-gray);
+  margin-bottom: 10vh;
+}
+
+input[type="color"] {
+  padding: 0px;
+  background: none;
+  border: none;
+  margin: 0;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  margin: 10px 0;
+  border: none;
+}
+
+.radio {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.radio-inne svg {
+  stroke: var(--text-light);
+  border: 2px solid var(--text-light);
+  padding: 11px;
+  box-sizing: content-box;
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  margin: 0 0 5px 0;
+}
+
+.modus-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.radio-inne label {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.active-modus svg {
+  stroke: var(--main-color);
+  border-color: var(--main-color);
+}
+
+.active-modus label {
+  color: var(--main-color);
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: gainsboro;
+  border-radius: 20px;
+  border: 0px solid #010101;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  border: 1px solid var(--main-color);
+  height: 20px;
+  width: 20px;
+  border-radius: 15px;
+  background: var(--main-color);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -8px;
+  position: relative;
+}
+
+.range {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-weight: bold;
+  color: var(--text-light);
+}
+
+.output-range {
+  min-width: 100px;
+  background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 5px 10px;
+}

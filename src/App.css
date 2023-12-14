@@ -44,6 +44,8 @@
   --bg-black: #3e3e3e;
   --light-gray: #cecece;
   --hover: #e26a0f;
+  --darkmode: #3a3939;
+  --darkmodelight: #5c5b5b;
 }
 
 * {
@@ -256,7 +258,7 @@ button img {
 }
 
 .dark {
-  background-color: #3e3e3e;
+  background-color: var(--darkmode);
   color: white;
 }
 
@@ -270,4 +272,8 @@ button img {
 .dark a,
 button {
   color: white;
+}
+
+.dark .content {
+  background-color: var(--darkmodelight);
 }

@@ -4,6 +4,10 @@
 .active {
   color: var(--main-color) !important;
 }
+
+.dark .active h3 {
+  color: var(--main-color) !important;
+}
 /* .active svg {
   color: var(--main-color);
   stroke: var(--main-color);

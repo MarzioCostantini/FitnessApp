@@ -1,10 +1,11 @@
 import "./Header.css";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import { useContext } from "react";
 import { ThemeContext } from "../../Context/Context";
 
 const Header = ({ text, description }) => {
-  const { setTheme } = useContext(ThemeContext);
+  const { setTheme, theme } = useContext(ThemeContext);
 
   return (
     <header>
@@ -13,10 +14,17 @@ const Header = ({ text, description }) => {
         <p>{description}</p>
       </div>
 
-      <DarkModeIcon
-        sx={{ fontSize: 22 }}
-        onClick={() => setTheme((state) => !state)}
-      />
+      {/* {theme ? (
+        <LightModeIcon
+          sx={{ fontSize: 22 }}
+          onClick={() => setTheme((state) => !state)}
+        />
+      ) : (
+        <DarkModeIcon
+          sx={{ fontSize: 22 }}
+          onClick={() => setTheme((state) => !state)}
+        />
+      )} */}
     </header>
   );
 };

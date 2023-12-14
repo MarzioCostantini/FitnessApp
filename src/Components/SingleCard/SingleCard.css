@@ -1,0 +1,27 @@
+.card {
+  border: 3px solid var(--main-color);
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* background-color: rgb(221, 221, 221); */
+  /* cursor: pointer; */
+  /* width: 300px; */
+}
+
+.card img {
+  height: 100px;
+  margin: auto;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin: 0 0 0px 10px;
+  text-transform: uppercase;
+}
+
+.card button {
+  font-size: 14px;
+}

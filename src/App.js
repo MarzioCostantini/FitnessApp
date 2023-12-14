@@ -60,9 +60,11 @@ function App() {
       },
       button: {
         fontSize: "clamp(1.4rem, 1.8vw, 1.4rem)",
+        color: "white",
       },
     },
   });
+
   return (
     <section className={theme ? "dark" : null}>
       <Helmet>

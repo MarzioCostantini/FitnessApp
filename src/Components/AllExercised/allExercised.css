@@ -1,0 +1,36 @@
+.cardlist h6 {
+  font-size: 20px;
+  margin: 20px 0 20px 0px;
+}
+.gridList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2vw;
+  /* justify-items: center; */
+}
+
+.btn-mui {
+  display: flex;
+  /* justify-content: flex-end; */
+  gap: 10px;
+  margin: 30px 0;
+}
+
+.btn-mui button {
+  color: white;
+}
+
+.btn-mui button:last-of-type {
+  color: var(--main-color);
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5vw;
+}
+
+.filter label {
+  font-size: 13px;
+}

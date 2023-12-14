@@ -27,6 +27,10 @@ const Nav = () => {
             <FitnessCenterIcon />
             <h3>All Exercisesd</h3>
           </NavLink>
+          <NavLink to="/nix" className="nav-item">
+            <FitnessCenterIcon />
+            <h3>MY Favorits</h3>
+          </NavLink>
         </nav>
       </div>
 

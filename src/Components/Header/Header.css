@@ -15,3 +15,7 @@ header p {
   font-size: 14px;
   margin-right: 5vw;
 }
+
+header svg {
+  cursor: pointer;
+}

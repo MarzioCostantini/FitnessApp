@@ -2,6 +2,7 @@ import ComingSoon from "../Components/comingSoon/ComingSoon";
 import Header from "../Components/Header/Header";
 import Nav from "../Components/Nav/Nav";
 import { Helmet } from "react-helmet";
+import Loadingscreen from "./LoadingPage";
 
 const Overview = () => {
   return (

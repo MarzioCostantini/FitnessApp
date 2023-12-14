@@ -36,6 +36,7 @@ const AllExercised = () => {
   const [value, setValue] = useState(bodypart[0]);
   const [filterData, setFilterdata] = useState(null);
   const [loadetItem, setLoadetItem] = useState(12);
+  const [searchInput, setSearchInput] = useState("");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -57,12 +58,28 @@ const AllExercised = () => {
     console.log("laoding item zurückgesetzt auf", loadetItem);
   }, [value]);
 
+  // ! Searchfield
+  useEffect(() => {
+    // Angenommen, exercises ist ein Array von Übungsobjekten
+    if (exercise && exercise.length > 0) {
+      const filteredData = exercise.filter((exercise) =>
+        exercise.name.toLowerCase().includes(searchInput.toLowerCase())
+      );
+      setFilterdata(filteredData);
+    } else {
+      setFilterdata([]); // Setzt filterData auf ein leeres Array, wenn keine Übungen vorhanden sind
+    }
+
+    console.log("Gefilterte Daten", filterData);
+  }, [searchInput, exercise]); // Hängt auch von exercises ab
+
   // ! LOGS
   console.log("value", value);
   console.log("exercise", exercise?.length);
   console.log("exercise", exercise);
   console.log("filterData", filterData?.length);
   console.log("loadetItem", loadetItem);
+  console.log("searchinput:", searchInput);
 
   return (
     <section>
@@ -89,6 +106,8 @@ const AllExercised = () => {
 
         {/* ! SUCHEN */}
         <TextField
+          onChange={(e) => setSearchInput(e.target.value)}
+          value={searchInput}
           label="Search"
           variant="outlined"
           fullWidth

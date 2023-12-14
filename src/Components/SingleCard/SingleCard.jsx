@@ -6,7 +6,7 @@ const SingleCard = (props) => {
     <div className="card">
       <img src={props.img} alt="übungsbild" />
       <h3>{props.name}</h3>
-      <Button size="large">Learn More</Button>
+      <Button size="large">Show More</Button>
     </div>
   );
 };

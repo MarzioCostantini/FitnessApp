@@ -60,18 +60,13 @@ const AllExercised = () => {
 
   // ! Searchfield
   useEffect(() => {
-    // Angenommen, exercises ist ein Array von Übungsobjekten
-    if (exercise && exercise.length > 0) {
-      const filteredData = exercise.filter((exercise) =>
-        exercise.name.toLowerCase().includes(searchInput.toLowerCase())
-      );
-      setFilterdata(filteredData);
-    } else {
-      setFilterdata([]); // Setzt filterData auf ein leeres Array, wenn keine Übungen vorhanden sind
-    }
+    const filteredData = exercise.filter((exercise) =>
+      exercise.name.toLowerCase().includes(searchInput.toLowerCase())
+    );
+    setFilterdata(filteredData);
 
-    console.log("Gefilterte Daten", filterData);
-  }, [searchInput, exercise]); // Hängt auch von exercises ab
+    setValue("all");
+  }, [searchInput, exercise]);
 
   // ! LOGS
   console.log("value", value);

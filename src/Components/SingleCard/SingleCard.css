@@ -8,6 +8,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   transition: all 0.2s;
+  position: relative;
 }
 .card:hover {
   transform: scale(1.05);
@@ -25,4 +26,18 @@
 
 .card button {
   font-size: 14px;
+}
+
+.card svg {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  fill: var(--text-light);
+}
+
+.card svg:hover {
+  fill: var(--main-color);
 }

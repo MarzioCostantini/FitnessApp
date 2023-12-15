@@ -3,6 +3,7 @@ import logo from "../../assets/img/PowerRator_logo.svg";
 import PlanIcon from "@mui/icons-material/ContentPaste";
 import HiveIcon from "@mui/icons-material/Hive";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import StarIcon from "@mui/icons-material/Star";
 
 import "./Nav.css";
 
@@ -23,12 +24,12 @@ const Nav = () => {
             <HiveIcon />
             <h3>Overview</h3>
           </NavLink>
-          <NavLink to="/all-exercises" className="nav-item">
+          <NavLink to="/exercises" className="nav-item">
             <FitnessCenterIcon />
             <h3>All Exercisesd</h3>
           </NavLink>
           <Link to="#" className="nav-item">
-            <FitnessCenterIcon />
+            <StarIcon />
             <h3>MY Favorits</h3>
           </Link>
         </nav>

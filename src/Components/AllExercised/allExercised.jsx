@@ -11,15 +11,14 @@ import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 
 import Loading from "../Loading";
-import SingleCard from "../SingleCard/SingleCard";
+// import SingleCard from "../SingleCard/SingleCard";
 
-// !Context
-import { useContext } from "react";
-import { FetchContext } from "../../Context/Context";
+// Card
+import StarBorderIcon from "@mui/icons-material/StarBorder";
+import StarIcon from "@mui/icons-material/Star";
+import "../SingleCard/SingleCard.css";
 
 const AllExercised = () => {
-  const { exercise } = useContext(FetchContext);
-
   const [bodypart, setBodypart] = useState([
     "all",
     "back",
@@ -37,17 +36,26 @@ const AllExercised = () => {
   const [filterData, setFilterdata] = useState(null);
   const [loadetItem, setLoadetItem] = useState(12);
   const [searchInput, setSearchInput] = useState("");
+  const [savedStorage, setSavedStorage] = useState(null);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  // ! Local Storage - holt sich die daten aus storage - schrieb in state
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("exercises"));
+    if (data) {
+      setSavedStorage(data);
+    }
+  }, []);
+
   // ! Filtert die daten je nach Bodytype
   useEffect(() => {
     if (value === "all") {
-      setFilterdata(exercise);
+      setFilterdata(savedStorage);
     } else {
-      const dataaa = exercise?.filter((elm) => elm.bodyPart === value);
+      const dataaa = savedStorage?.filter((elm) => elm.bodyPart === value);
       setFilterdata(dataaa);
     }
   }, [value]);
@@ -55,26 +63,42 @@ const AllExercised = () => {
   // ! Loade More Btn
   useEffect(() => {
     setLoadetItem(12);
-    console.log("laoding item zurückgesetzt auf", loadetItem);
   }, [value]);
 
   // ! Searchfield
   useEffect(() => {
-    const filteredData = exercise.filter((exercise) =>
-      exercise.name.toLowerCase().includes(searchInput.toLowerCase())
+    const filteredData = savedStorage?.filter((savedStorage) =>
+      savedStorage.name.toLowerCase().includes(searchInput.toLowerCase())
     );
     setFilterdata(filteredData);
+  }, [searchInput, savedStorage]);
 
+  useEffect(() => {
     setValue("all");
-  }, [searchInput, exercise]);
+  }, [searchInput]);
 
   // ! LOGS
-  console.log("value", value);
-  console.log("exercise", exercise?.length);
-  console.log("exercise", exercise);
-  console.log("filterData", filterData?.length);
-  console.log("loadetItem", loadetItem);
-  console.log("searchinput:", searchInput);
+  // console.log("value", value);
+  // console.log("exercise", exercise?.length);
+  // console.log("exercise", exercise);
+  // console.log("filterData", filterData?.length);
+  // console.log("loadetItem", loadetItem);
+  // console.log("searchinput:", searchInput);
+  console.log("savedStorage", savedStorage);
+
+  // ! Fügt zum Fav hinzu
+
+  const setFav = (index) => {
+    const newTodos = savedStorage.map((item, idx) =>
+      idx === index ? { ...item, favorite: !item.favorite } : item
+    );
+
+    // Aktualisieren des States und des lokalen Speichers
+    setSavedStorage(newTodos);
+    localStorage.setItem("exercises", JSON.stringify(newTodos));
+
+    console.log("Die karte mit dem ", index, "wurde angeklickt");
+  };
 
   return (
     <section>
@@ -94,7 +118,12 @@ const AllExercised = () => {
             // centered
           >
             {bodypart.map((elm, index) => (
-              <Tab key={index} value={elm} label={elm} />
+              <Tab
+                key={index}
+                value={elm}
+                label={elm}
+                disabled={searchInput !== "" ? true : false}
+              />
             ))}
           </Tabs>
         </Box>
@@ -133,7 +162,16 @@ const AllExercised = () => {
           <h6>Show {value} exercises</h6>
           <section className="gridList">
             {filterData?.slice(0, loadetItem).map((elm, index) => (
-              <SingleCard key={index} name={elm.name} img={elm.gifUrl} />
+              <div className="card" key={index}>
+                <img src={elm.gifUrl} alt="übungsbild" />
+                <h3>{elm.name}</h3>
+                <Button size="large">Show More</Button>
+                {filterData?.[index].favorite ? (
+                  <StarIcon onClick={() => setFav(index)} />
+                ) : (
+                  <StarBorderIcon onClick={() => setFav(index)} />
+                )}
+              </div>
             ))}
           </section>
           <div className="btn-mui">

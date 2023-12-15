@@ -34,3 +34,7 @@
 .filter label {
   font-size: 13px;
 }
+
+.iconFill {
+  fill: red !important;
+}

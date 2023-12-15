@@ -86,7 +86,7 @@ function App() {
                   <div className="wrapper">
                     <Routes>
                       <Route path="/" element={<Overview />} />
-                      <Route path="/all-exercises" element={<AllExercise />} />
+                      <Route path="/exercises" element={<AllExercise />} />
                     </Routes>
                   </div>
                 </BrowserRouter>

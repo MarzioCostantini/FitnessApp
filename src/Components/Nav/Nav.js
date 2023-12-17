@@ -28,10 +28,10 @@ const Nav = () => {
             <FitnessCenterIcon />
             <h3>All Exercisesd</h3>
           </NavLink>
-          <Link to="#" className="nav-item">
+          <NavLink to="/my-favorites" className="nav-item">
             <StarIcon />
-            <h3>MY Favorits</h3>
-          </Link>
+            <h3>My Favorites</h3>
+          </NavLink>
         </nav>
       </div>
 

@@ -19,6 +19,7 @@ import { FetchContext } from "./Context/Context";
 import { createTheme, colors, ThemeProvider } from "@mui/material";
 import Loadingscreen from "./Pages/LoadingPage";
 import { useState } from "react";
+import MyFavorites from "./Pages/MyFavorites";
 
 function App() {
   // erstellt einen State
@@ -87,6 +88,7 @@ function App() {
                     <Routes>
                       <Route path="/" element={<Overview />} />
                       <Route path="/exercises" element={<AllExercise />} />
+                      <Route path="/my-favorites" element={<MyFavorites />} />
                     </Routes>
                   </div>
                 </BrowserRouter>

@@ -78,24 +78,18 @@ const AllExercised = () => {
   }, [searchInput]);
 
   // ! LOGS
-  // console.log("value", value);
-  // console.log("exercise", exercise?.length);
-  // console.log("exercise", exercise);
-  // console.log("filterData", filterData?.length);
-  // console.log("loadetItem", loadetItem);
-  // console.log("searchinput:", searchInput);
   console.log("savedStorage", savedStorage);
 
   // ! Fügt zum Fav hinzu
 
   const setFav = (index) => {
-    const newTodos = savedStorage.map((item, idx) =>
+    const favÜbung = savedStorage.map((item, idx) =>
       idx === index ? { ...item, favorite: !item.favorite } : item
     );
 
     // Aktualisieren des States und des lokalen Speichers
-    setSavedStorage(newTodos);
-    localStorage.setItem("exercises", JSON.stringify(newTodos));
+    setSavedStorage(favÜbung);
+    localStorage.setItem("exercises", JSON.stringify(favÜbung));
 
     console.log("Die karte mit dem ", index, "wurde angeklickt");
   };
@@ -163,7 +157,7 @@ const AllExercised = () => {
           <section className="gridList">
             {filterData?.slice(0, loadetItem).map((elm, index) => (
               <div className="card" key={index}>
-                <img src={elm.gifUrl} alt="übungsbild" />
+                <img src={`${elm.gifUrl}.gif`} alt="übungsbild" />
                 <h3>{elm.name}</h3>
                 <Button size="large">Show More</Button>
                 {filterData?.[index].favorite ? (

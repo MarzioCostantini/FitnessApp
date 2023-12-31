@@ -30,32 +30,23 @@ const MyFavoritesEx = () => {
   // console.log("ich bin auf der My Fav Seite,", savedStorage);
 
   // ! Fügt zum Fav hinzu
-  const setFav = (index) => {
-    setSelectedFavIndex(index);
+  // # ======= MIT ID TESTEN ZU FINDEN NICHT MIT DEM INDEX!!!!!!===========
+  const setFav = (id) => {
+    const favÜbung = savedStorage.map((item) =>
+      item.id === id ? { ...item, favorite: !item.favorite } : item
+    );
+
+    console.log(
+      "MyFavorietesEx - die karte mit der id:",
+      id,
+      " wurde bearbeitet"
+    );
+
+    // Aktualisieren des States und des lokalen Speichers
+    setSavedStorage(favÜbung);
+    localStorage.setItem("exercises", JSON.stringify(favÜbung));
   };
 
-  useEffect(() => {
-    if (selectedFavIndex !== null) {
-      // Kopiere den aktuellen Zustand, um Mutationen zu vermeiden.
-      let updatedStorage = [...savedStorage];
-
-      // Überprüfe, ob das Element am gegebenen Index existiert.
-      if (updatedStorage[selectedFavIndex]) {
-        // Invertiere den 'favorite'-Wert des Elements.
-        updatedStorage[selectedFavIndex] = {
-          ...updatedStorage[selectedFavIndex],
-          favorite: !updatedStorage[selectedFavIndex].favorite,
-        };
-
-        // Aktualisiere den State und den Local Storage.
-        setSavedStorage(updatedStorage);
-        localStorage.setItem("exercises", JSON.stringify(updatedStorage));
-      }
-
-      // Zurücksetzen des selectedFavIndex, um Mehrfachaktualisierungen zu vermeiden.
-      setSelectedFavIndex(null);
-    }
-  }, [selectedFavIndex, savedStorage]);
   return (
     <section className="favlist">
       {savedStorage
@@ -66,7 +57,7 @@ const MyFavoritesEx = () => {
             <h3>{elm.name}</h3>
             <Button size="large">Show More</Button>
 
-            <StarIcon onClick={() => setFav(index)} />
+            <StarIcon onClick={() => setFav(elm.id)} />
           </div>
         ))}
     </section>

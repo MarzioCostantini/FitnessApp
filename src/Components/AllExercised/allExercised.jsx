@@ -81,17 +81,16 @@ const AllExercised = () => {
   console.log("savedStorage", savedStorage);
 
   // ! Fügt zum Fav hinzu
-
-  const setFav = (index) => {
-    const favÜbung = savedStorage.map((item, idx) =>
-      idx === index ? { ...item, favorite: !item.favorite } : item
+  const setFav = (id) => {
+    const favÜbung = savedStorage.map((item) =>
+      item.id === id ? { ...item, favorite: !item.favorite } : item
     );
+
+    console.log("die karte mit der id:", id, " wurde bearbeitet");
 
     // Aktualisieren des States und des lokalen Speichers
     setSavedStorage(favÜbung);
     localStorage.setItem("exercises", JSON.stringify(favÜbung));
-
-    console.log("Die karte mit dem ", index, "wurde angeklickt");
   };
 
   return (
@@ -161,9 +160,9 @@ const AllExercised = () => {
                 <h3>{elm.name}</h3>
                 <Button size="large">Show More</Button>
                 {filterData?.[index].favorite ? (
-                  <StarIcon onClick={() => setFav(index)} />
+                  <StarIcon onClick={() => setFav(elm.id)} />
                 ) : (
-                  <StarBorderIcon onClick={() => setFav(index)} />
+                  <StarBorderIcon onClick={() => setFav(elm.id)} />
                 )}
               </div>
             ))}

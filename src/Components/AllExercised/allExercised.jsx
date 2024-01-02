@@ -17,6 +17,7 @@ import Loading from "../Loading";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 import "../SingleCard/SingleCard.css";
+import { IconButton } from "@mui/material";
 
 const AllExercised = () => {
   const [bodypart, setBodypart] = useState([
@@ -160,9 +161,20 @@ const AllExercised = () => {
                 <h3>{elm.name}</h3>
                 <Button size="large">Show More</Button>
                 {filterData?.[index].favorite ? (
-                  <StarIcon onClick={() => setFav(elm.id)} />
+                  <IconButton
+                    className="star-icon"
+                    onClick={() => setFav(elm.id)}
+                    aria-label="delete"
+                  >
+                    <StarIcon />
+                  </IconButton>
                 ) : (
-                  <StarBorderIcon onClick={() => setFav(elm.id)} />
+                  <IconButton
+                    className="star-icon"
+                    onClick={() => setFav(elm.id)}
+                  >
+                    <StarBorderIcon />
+                  </IconButton>
                 )}
               </div>
             ))}

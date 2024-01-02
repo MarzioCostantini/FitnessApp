@@ -1,0 +1,17 @@
+.noData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  /* opacity: 0.4; */
+  color: var(--text-light);
+}
+
+.noData svg {
+  font-size: 120px;
+}
+
+.noData button {
+  font-size: 14px;
+}

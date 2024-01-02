@@ -28,10 +28,13 @@
   font-size: 14px;
 }
 
-.card svg {
+.card .star-icon {
   position: absolute;
   top: 15px;
   right: 15px;
+}
+
+.card svg {
   height: 25px;
   width: 25px;
   cursor: pointer;

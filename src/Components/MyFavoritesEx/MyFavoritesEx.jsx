@@ -5,6 +5,8 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 import "../SingleCard/SingleCard.css";
 import Button from "@mui/material/Button";
+import NoData from "../NoData/NoData";
+import { IconButton } from "@mui/material";
 
 const MyFavoritesEx = () => {
   const [savedStorage, setSavedStorage] = useState([]);
@@ -30,16 +32,9 @@ const MyFavoritesEx = () => {
   // console.log("ich bin auf der My Fav Seite,", savedStorage);
 
   // ! Fügt zum Fav hinzu
-  // # ======= MIT ID TESTEN ZU FINDEN NICHT MIT DEM INDEX!!!!!!===========
   const setFav = (id) => {
     const favÜbung = savedStorage.map((item) =>
       item.id === id ? { ...item, favorite: !item.favorite } : item
-    );
-
-    console.log(
-      "MyFavorietesEx - die karte mit der id:",
-      id,
-      " wurde bearbeitet"
     );
 
     // Aktualisieren des States und des lokalen Speichers
@@ -47,17 +42,24 @@ const MyFavoritesEx = () => {
     localStorage.setItem("exercises", JSON.stringify(favÜbung));
   };
 
-  return (
+  return favExercises.length === 0 ? (
+    <NoData />
+  ) : (
     <section className="favlist">
       {savedStorage
         ?.filter((item) => item.favorite === true)
         .map((elm, index) => (
           <div className="card" key={index}>
-            <img src={`${elm.gifUrl}.gif`} alt="übungsbild" />
+            <img src={`${elm.gifUrl}.gif`} alt="exercise image" />
             <h3>{elm.name}</h3>
             <Button size="large">Show More</Button>
-
-            <StarIcon onClick={() => setFav(elm.id)} />
+            <IconButton
+              className="star-icon"
+              onClick={() => setFav(elm.id)}
+              aria-label="delete"
+            >
+              <StarIcon />
+            </IconButton>
           </div>
         ))}
     </section>

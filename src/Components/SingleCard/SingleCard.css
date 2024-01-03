@@ -44,3 +44,7 @@
 .card svg:hover {
   fill: var(--main-color);
 }
+
+.card .full svg {
+  fill: var(--main-color);
+}

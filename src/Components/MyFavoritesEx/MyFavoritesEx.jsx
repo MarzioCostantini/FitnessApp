@@ -79,7 +79,7 @@ const MyFavoritesEx = () => {
             </Button>
 
             <IconButton
-              className="star-icon"
+              className="star-icon full"
               onClick={() => {
                 setFav(elm.id);
               }}

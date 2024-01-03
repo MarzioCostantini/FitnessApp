@@ -167,7 +167,7 @@ const AllExercised = () => {
                 <Button size="large">Show More</Button>
                 {filterData?.[index].favorite ? (
                   <IconButton
-                    className="star-icon"
+                    className="star-icon full"
                     onClick={() => setFav(elm.id)}
                     aria-label="delete"
                   >

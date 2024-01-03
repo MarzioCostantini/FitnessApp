@@ -8,8 +8,21 @@ import StarIcon from "@mui/icons-material/Star";
 import "./Nav.css";
 
 import { NavLink, Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+
+// Context
+import { FetchContext } from "../../Context/Context";
 
 const Nav = () => {
+  const [favNum, setFavNum] = useState(null);
+  const { exercise } = useContext(FetchContext);
+
+  useEffect(() => {
+    const filterOb = exercise?.filter((item) => item.favorite === true);
+    const favLenght = filterOb.length;
+    setFavNum(favLenght);
+  }, [exercise]);
+
   return (
     <section className="nav-wrapper">
       <div className="top-element">
@@ -30,7 +43,10 @@ const Nav = () => {
           </NavLink>
           <NavLink to="/my-favorites" className="nav-item">
             <StarIcon />
-            <h3>My Favorites</h3>
+            <div className="nav-num">
+              <h3>My Favorites </h3>
+              {favNum != 0 && <p>{favNum}</p>}
+            </div>
           </NavLink>
         </nav>
       </div>

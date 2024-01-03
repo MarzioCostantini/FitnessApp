@@ -6,7 +6,7 @@ const NoData = () => {
   return (
     <article className="noData">
       <SentimentVeryDissatisfiedIcon />
-      <h2>There are no favorites saved yet.</h2>
+      <h2>There are no favorites saved yet</h2>
       <Link to="/exercises">
         <Button size="large">Find some</Button>
       </Link>

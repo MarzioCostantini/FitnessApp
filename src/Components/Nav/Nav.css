@@ -109,3 +109,17 @@
   border-radius: 15px;
   padding: 3px 8px;
 }
+
+.nav-num {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-num p {
+  color: var(--main-color);
+  background-color: var(--main-light);
+  padding: 0 15px;
+  border-radius: 11px;
+  font-family: "CarioSemiBold";
+}

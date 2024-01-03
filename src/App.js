@@ -14,6 +14,8 @@ import "@fontsource/roboto/700.css";
 import { ThemeContext } from "./Context/Context";
 import { LoadingContext } from "./Context/Context";
 import { FetchContext } from "./Context/Context";
+import { FavExContext } from "./Context/Context";
+
 // !Themen
 
 import { createTheme, colors, ThemeProvider } from "@mui/material";
@@ -25,7 +27,9 @@ function App() {
   // erstellt einen State
   const [theme, setTheme] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [exercise, setExercise] = useState();
+  const [exercise, setExercise] = useState(null);
+
+  console.log("context state von exercise", exercise);
 
   console.log(theme);
   const themee = createTheme({

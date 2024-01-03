@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./allExercised.css";
 
 import Button from "@mui/material/Button";
@@ -18,6 +18,9 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 import "../SingleCard/SingleCard.css";
 import { IconButton } from "@mui/material";
+
+// Context
+import { FetchContext } from "../../Context/Context";
 
 const AllExercised = () => {
   const [bodypart, setBodypart] = useState([
@@ -38,6 +41,7 @@ const AllExercised = () => {
   const [loadetItem, setLoadetItem] = useState(12);
   const [searchInput, setSearchInput] = useState("");
   const [savedStorage, setSavedStorage] = useState(null);
+  const { setExercise } = useContext(FetchContext);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -79,7 +83,7 @@ const AllExercised = () => {
   }, [searchInput]);
 
   // ! LOGS
-  console.log("savedStorage", savedStorage);
+  // console.log("savedStorageeees", savedStorage);
 
   // ! Fügt zum Fav hinzu
   const setFav = (id) => {
@@ -89,8 +93,9 @@ const AllExercised = () => {
 
     console.log("die karte mit der id:", id, " wurde bearbeitet");
 
-    // Aktualisieren des States und des lokalen Speichers
+    // Aktualisieren des States und des lokalen Speichers und des Context
     setSavedStorage(favÜbung);
+    setExercise(favÜbung);
     localStorage.setItem("exercises", JSON.stringify(favÜbung));
   };
 

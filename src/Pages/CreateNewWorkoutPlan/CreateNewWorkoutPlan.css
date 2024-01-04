@@ -1,0 +1,10 @@
+.content-l-r {
+  margin: 30px;
+  grid-area: 2 / 3 / 13 / 13;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px;
+
+  /* overflow-y: scroll; */
+}

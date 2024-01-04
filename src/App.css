@@ -271,3 +271,8 @@ button {
 .dark .content {
   background-color: var(--darkmodelight);
 }
+
+/* Button Text Farbe */
+.css-vd2l9r-MuiButtonBase-root-MuiButton-root {
+  color: var(--white) !important;
+}

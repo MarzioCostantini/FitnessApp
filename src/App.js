@@ -14,7 +14,7 @@ import "@fontsource/roboto/700.css";
 import { ThemeContext } from "./Context/Context";
 import { LoadingContext } from "./Context/Context";
 import { FetchContext } from "./Context/Context";
-import { FavExContext } from "./Context/Context";
+import { WorkoutPlansContext } from "./Context/Context";
 
 // !Themen
 
@@ -22,13 +22,14 @@ import { createTheme, colors, ThemeProvider } from "@mui/material";
 import Loadingscreen from "./Pages/LoadingPage";
 import { useState } from "react";
 import MyFavorites from "./Pages/MyFavorites";
-import CreateNewWorkoutPlan from "./Pages/CreateNewWorkoutPlan";
+import CreateNewWorkoutPlan from "./Pages/CreateNewWorkoutPlan/CreateNewWorkoutPlan";
 
 function App() {
   // erstellt einen State
   const [theme, setTheme] = useState(false);
   const [loading, setLoading] = useState(false);
   const [exercise, setExercise] = useState(null);
+  const [workoutPlans, setWorkoutPlans] = useState(null);
 
   console.log("context state von exercise", exercise);
 
@@ -86,25 +87,29 @@ function App() {
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <FetchContext.Provider value={{ exercise, setExercise }}>
           <LoadingContext.Provider value={{ setLoading }}>
-            {loading ? (
-              <ThemeProvider theme={themee}>
-                <BrowserRouter>
-                  <div className="wrapper">
-                    <Routes>
-                      <Route path="/" element={<Overview />} />
-                      <Route path="/exercises" element={<AllExercise />} />
-                      <Route path="/my-favorites" element={<MyFavorites />} />
-                      <Route
-                        path="/new-workout"
-                        element={<CreateNewWorkoutPlan />}
-                      />
-                    </Routes>
-                  </div>
-                </BrowserRouter>
-              </ThemeProvider>
-            ) : (
-              <Loadingscreen />
-            )}
+            <WorkoutPlansContext.Provider
+              value={{ workoutPlans, setWorkoutPlans }}
+            >
+              {loading ? (
+                <ThemeProvider theme={themee}>
+                  <BrowserRouter>
+                    <div className="wrapper">
+                      <Routes>
+                        <Route path="/" element={<Overview />} />
+                        <Route path="/exercises" element={<AllExercise />} />
+                        <Route path="/my-favorites" element={<MyFavorites />} />
+                        <Route
+                          path="/new-workout"
+                          element={<CreateNewWorkoutPlan />}
+                        />
+                      </Routes>
+                    </div>
+                  </BrowserRouter>
+                </ThemeProvider>
+              ) : (
+                <Loadingscreen />
+              )}
+            </WorkoutPlansContext.Provider>
           </LoadingContext.Provider>
         </FetchContext.Provider>
       </ThemeContext.Provider>

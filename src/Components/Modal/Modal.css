@@ -16,5 +16,80 @@
 .modal-wrapper article {
   background-color: white;
   width: 50vw;
-  height: 50vh;
+  min-height: 50vh;
+  padding: 30px 60px;
+  border-radius: 30px;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 5vw;
+}
+
+.modal-wrapper article h4::first-letter {
+  text-transform: uppercase;
+}
+.target {
+  text-transform: uppercase;
+  background-color: var(--main-light);
+  color: var(--main-color);
+  font-weight: bold;
+  display: inline-block;
+  padding: 0px 40px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.instruction h6 {
+  font-size: 20px;
+}
+
+.instruction li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.instruction .num {
+  background-color: var(--main-light);
+  color: var(--main-color);
+  height: 25px;
+  min-width: 25px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -3px;
+}
+
+.close-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.close-btn svg {
+  width: 40px;
+  height: 40px;
+  fill: var(--text-light);
+}
+
+.fav-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.fav-icon svg {
+  height: 25px;
+  width: 25px;
+}
+
+.exer-img img {
+  width: 200px;
 }

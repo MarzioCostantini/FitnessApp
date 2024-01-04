@@ -120,6 +120,7 @@
   color: var(--main-color);
   background-color: var(--main-light);
   padding: 0 15px;
-  border-radius: 11px;
-  font-family: "CarioSemiBold";
+  border-radius: 10px;
+  font-family: "CarioBold";
+  font-size: 14px;
 }

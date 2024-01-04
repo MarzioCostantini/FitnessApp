@@ -89,7 +89,13 @@ const MyFavoritesEx = () => {
             </IconButton>
           </div>
         ))}
-      {open && <Modal modalData={modalData} setOpen={setOpen} />}
+      {open && (
+        <Modal
+          setSavedStorage={setSavedStorage}
+          modalData={modalData}
+          setOpen={setOpen}
+        />
+      )}
     </section>
   );
 };

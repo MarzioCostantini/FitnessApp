@@ -22,6 +22,7 @@ import { createTheme, colors, ThemeProvider } from "@mui/material";
 import Loadingscreen from "./Pages/LoadingPage";
 import { useState } from "react";
 import MyFavorites from "./Pages/MyFavorites";
+import CreateNewWorkoutPlan from "./Pages/CreateNewWorkoutPlan";
 
 function App() {
   // erstellt einen State
@@ -93,6 +94,10 @@ function App() {
                       <Route path="/" element={<Overview />} />
                       <Route path="/exercises" element={<AllExercise />} />
                       <Route path="/my-favorites" element={<MyFavorites />} />
+                      <Route
+                        path="/new-workout"
+                        element={<CreateNewWorkoutPlan />}
+                      />
                     </Routes>
                   </div>
                 </BrowserRouter>

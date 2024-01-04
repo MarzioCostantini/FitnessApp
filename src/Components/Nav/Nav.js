@@ -4,6 +4,7 @@ import PlanIcon from "@mui/icons-material/ContentPaste";
 import HiveIcon from "@mui/icons-material/Hive";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import StarIcon from "@mui/icons-material/Star";
+import NoteAddRoundedIcon from "@mui/icons-material/NoteAddRounded";
 
 import "./Nav.css";
 
@@ -46,6 +47,12 @@ const Nav = () => {
             <div className="nav-num">
               <h3>My Favorites </h3>
               {favNum != 0 && <p>{favNum}</p>}
+            </div>
+          </NavLink>
+          <NavLink to="/new-workout" className="nav-item">
+            <NoteAddRoundedIcon />
+            <div className="nav-num">
+              <h3>New Workout </h3>
             </div>
           </NavLink>
         </nav>

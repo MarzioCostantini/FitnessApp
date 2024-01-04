@@ -25,6 +25,9 @@
   align-items: center;
   gap: 5vw;
 }
+.modal-wrapper h4 {
+  line-height: 1;
+}
 
 .modal-wrapper article h4::first-letter {
   text-transform: uppercase;
@@ -69,8 +72,8 @@
 .close-btn {
   cursor: pointer;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
 }
 
 .close-btn svg {
@@ -79,17 +82,18 @@
   fill: var(--text-light);
 }
 
-.fav-icon {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
-
 .fav-icon svg {
-  height: 25px;
-  width: 25px;
+  height: 35px;
+  width: 35px;
 }
 
 .exer-img img {
   width: 200px;
+}
+
+.headline {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
 }

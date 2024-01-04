@@ -17,9 +17,8 @@ const MyFavoritesEx = () => {
   const [savedStorage, setSavedStorage] = useState([]);
   const [favExercises, setFavExercises] = useState([]);
   const [open, setOpen] = useState(false);
-  const { setExercise } = useContext(FetchContext);
-
   const [modalData, setModalData] = useState(null);
+  const { setExercise } = useContext(FetchContext);
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("exercises"));
@@ -51,13 +50,6 @@ const MyFavoritesEx = () => {
     localStorage.setItem("exercises", JSON.stringify(favÜbung));
   };
 
-  // ! Öffnent Popup Fenster mit Detail
-  const openModalBox = () => {
-    setOpen(true);
-  };
-
-  console.log(open);
-
   return favExercises.length === 0 ? (
     <NoData />
   ) : (
@@ -71,7 +63,7 @@ const MyFavoritesEx = () => {
             <Button
               onClick={() => {
                 setModalData(elm);
-                openModalBox();
+                setOpen(true);
               }}
               size="large"
             >

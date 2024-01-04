@@ -29,7 +29,27 @@ const Modal = ({ setOpen, modalData, setSavedStorage }) => {
     <section className="modal-wrapper">
       <article>
         <div>
-          <h4>{modalData?.name}</h4>
+          <div className="headline">
+            <h4>{modalData?.name}</h4>
+            <div className="fav-icon">
+              {modalData?.favorite ? (
+                <IconButton
+                  className="star-icon full"
+                  onClick={() => setFav(modalData?.id)}
+                  aria-label="delete"
+                >
+                  <StarIcon />
+                </IconButton>
+              ) : (
+                <IconButton
+                  className="star-icon"
+                  onClick={() => setFav(modalData?.id)}
+                >
+                  <StarBorderIcon />
+                </IconButton>
+              )}
+            </div>
+          </div>
           <p className="target">{modalData?.target}</p>
 
           <div className="instruction">
@@ -44,25 +64,6 @@ const Modal = ({ setOpen, modalData, setSavedStorage }) => {
           </div>
           <div onClick={() => setOpen(false)} className="close-btn">
             <CloseIcon />
-          </div>
-
-          <div className="fav-icon">
-            {modalData?.favorite ? (
-              <IconButton
-                className="star-icon full"
-                onClick={() => setFav(modalData?.id)}
-                aria-label="delete"
-              >
-                <StarIcon />
-              </IconButton>
-            ) : (
-              <IconButton
-                className="star-icon"
-                onClick={() => setFav(modalData?.id)}
-              >
-                <StarBorderIcon />
-              </IconButton>
-            )}
           </div>
         </div>
         <div className="exer-img">

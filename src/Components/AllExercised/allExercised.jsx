@@ -21,6 +21,7 @@ import { IconButton } from "@mui/material";
 
 // Context
 import { FetchContext } from "../../Context/Context";
+import Modal from "../Modal/Modal";
 
 const AllExercised = () => {
   const [bodypart, setBodypart] = useState([
@@ -42,6 +43,8 @@ const AllExercised = () => {
   const [searchInput, setSearchInput] = useState("");
   const [savedStorage, setSavedStorage] = useState(null);
   const { setExercise } = useContext(FetchContext);
+  const [modalData, setModalData] = useState(null);
+  const [open, setOpen] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -164,7 +167,15 @@ const AllExercised = () => {
               <div className="card" key={index}>
                 <img src={`${elm.gifUrl}.gif`} alt="übungsbild" />
                 <h3>{elm.name}</h3>
-                <Button size="large">Show More</Button>
+                <Button
+                  onClick={() => {
+                    setModalData(elm);
+                    setOpen(true);
+                  }}
+                  size="large"
+                >
+                  Show More
+                </Button>
                 {filterData?.[index].favorite ? (
                   <IconButton
                     className="star-icon full"
@@ -183,6 +194,13 @@ const AllExercised = () => {
                 )}
               </div>
             ))}
+            {open && (
+              <Modal
+                setSavedStorage={setSavedStorage}
+                modalData={modalData}
+                setOpen={setOpen}
+              />
+            )}
           </section>
           <div className="btn-mui">
             <Button

@@ -19,7 +19,7 @@ const Nav = () => {
 
   useEffect(() => {
     const filterOb = exercise?.filter((item) => item.favorite === true);
-    const favLenght = filterOb.length;
+    const favLenght = filterOb?.length;
     setFavNum(favLenght);
   }, [exercise]);
 

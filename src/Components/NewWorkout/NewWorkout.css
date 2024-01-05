@@ -5,4 +5,120 @@
   height: 100%;
   border-radius: 30px;
   padding: 30px;
+  overflow-y: auto;
+}
+
+/* ! HERO */
+.new-workout .hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.new-workout .hero label {
+  font-size: 14px;
+}
+
+.new-workout .hero input {
+  width: 250px;
+}
+
+.css-itztx9-MuiInputBase-root-MuiOutlinedInput-root {
+  font-size: 14px !important;
+}
+
+/* ! ACCORDION */
+.accordion {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.06) !important;
+  border-radius: 40px;
+}
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+  margin: 5px 0 !important;
+}
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root:before {
+  display: none !important;
+}
+
+.content-acc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 50px;
+  gap: 3vw;
+}
+.css-o4b71y-MuiAccordionSummary-content {
+  justify-content: space-between;
+}
+
+.MuiAccordionSummary-content .name {
+  font-weight: bold;
+}
+
+.sm-line {
+  height: 30px;
+  width: 2px;
+  background-color: var(--light-gray);
+}
+
+.accordion {
+  border-radius: 10px !important;
+}
+
+.accordion svg {
+  height: 20px;
+  width: 20px;
+}
+
+.accordion button {
+  margin-right: 30px;
+}
+
+.muscle {
+  background-color: var(--main-light);
+  color: var(--main-color);
+  padding: 0 20px;
+  border-radius: 10px;
+}
+
+.acc-visib {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.acc-visib img {
+  max-width: 200px;
+}
+
+.acc-visib li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.css-15v22id-MuiAccordionDetails-root {
+  padding: 0 !important;
+}
+.acc-visib .num {
+  background-color: var(--main-light);
+  color: var(--main-color);
+  height: 25px;
+  min-width: 25px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -3px;
+}
+
+.acc-visib h6 {
+  font-size: 20px;
+  margin-bottom: 15px;
 }

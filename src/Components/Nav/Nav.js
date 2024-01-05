@@ -2,7 +2,7 @@ import logo from "../../assets/img/PowerRator_logo.svg";
 
 import PlanIcon from "@mui/icons-material/ContentPaste";
 import HiveIcon from "@mui/icons-material/Hive";
-import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import FitnessCenterRoundedIcon from "@mui/icons-material/FitnessCenterRounded";
 import StarIcon from "@mui/icons-material/Star";
 import NoteAddRoundedIcon from "@mui/icons-material/NoteAddRounded";
 
@@ -39,7 +39,7 @@ const Nav = () => {
             <h3>Overview</h3>
           </NavLink>
           <NavLink to="/exercises" className="nav-item">
-            <FitnessCenterIcon />
+            <FitnessCenterRoundedIcon />
             <h3>All Exercisesd</h3>
           </NavLink>
           <NavLink to="/my-favorites" className="nav-item">

@@ -18,11 +18,11 @@ const NewWorkoutFilter = () => {
   const { workoutPlans, setWorkoutPlans } = useContext(WorkoutPlansContext);
   const [tabValue, setTabValue] = useState("all");
   const [searchInput, setSearchInput] = useState("");
-  const [loadetItem, setLoadetItem] = useState(5);
+  const [loadetItem, setLoadetItem] = useState(25);
   const [searchData, setSeachData] = useState(null);
 
-  console.log("searchinput ist:", searchInput);
-  console.log("serachdata ist:", searchData);
+  // console.log("searchinput ist:", searchInput);
+  // console.log("serachdata ist:", searchData);
 
   // ! Tabs
   const handleChange = (event, value) => {

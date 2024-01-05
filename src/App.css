@@ -276,3 +276,11 @@ button {
 .css-vd2l9r-MuiButtonBase-root-MuiButton-root {
   color: var(--white) !important;
 }
+
+.css-14zsoq4-MuiFormControl-root-MuiTextField-root {
+  width: 100% !important;
+}
+
+.filter-new-ex label {
+  font-size: 14px;
+}

@@ -6,6 +6,7 @@
   border-radius: 30px;
   padding: 30px;
   overflow-y: scroll;
+  position: relative;
 }
 
 .css-1gsv261 {
@@ -27,12 +28,13 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.06);
   padding: 10px 30px;
   border-radius: 10px;
+  gap: 6px;
 }
 
 .small-card div {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 .item-name {
@@ -41,4 +43,18 @@
 
 .item-name::first-letter {
   text-transform: uppercase;
+}
+
+.MuiTabs-flexContainer {
+  justify-content: center;
+}
+
+.css-1ujnqem-MuiTabs-root {
+  margin-bottom: 15px;
+}
+
+.more-btn {
+  display: flex;
+  justify-content: center;
+  margin: 15px 15px 0 15px;
 }

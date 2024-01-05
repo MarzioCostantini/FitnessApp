@@ -42,7 +42,7 @@ const AllExercised = () => {
   const [loadetItem, setLoadetItem] = useState(12);
   const [searchInput, setSearchInput] = useState("");
   const [savedStorage, setSavedStorage] = useState(null);
-  const { setExercise } = useContext(FetchContext);
+  const { exercise, setExercise } = useContext(FetchContext);
   const [modalData, setModalData] = useState(null);
   const [open, setOpen] = useState(false);
 
@@ -55,6 +55,7 @@ const AllExercised = () => {
     const data = JSON.parse(localStorage.getItem("exercises"));
     if (data) {
       setSavedStorage(data);
+      setExercise(data);
     }
   }, []);
 

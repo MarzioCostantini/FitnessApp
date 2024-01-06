@@ -1,5 +1,5 @@
 import "./NewWorkout.css";
-import { FetchContext } from "../../Context/Context";
+import { AllWorkoutPlansContext, FetchContext } from "../../Context/Context";
 import { WorkoutPlansContext } from "../../Context/Context";
 import { useContext, useState } from "react";
 
@@ -10,10 +10,26 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SaveRoundedIcon from "@mui/icons-material/SaveRounded";
 import { Button, TextField } from "@mui/material";
+import Table from "../CollapsibleTable/CollapsibleTable";
+import CollapsibleTable from "../CollapsibleTable/CollapsibleTable";
 
 const NewWorkout = () => {
   const { exercise, setExercise } = useContext(FetchContext);
-  const { workoutPlans, setWorkoutPlans } = useContext(WorkoutPlansContext);
+  // Wo die einzelnen Trainingspläne gespeicher werden
+  const { workoutPlan, setWorkoutPlan } = useContext(WorkoutPlansContext);
+  // Wo alle Trainigspläne gespeichert werden
+  const { allWorkoutPlans, setAllWorkoutPlans } = useContext(
+    AllWorkoutPlansContext
+  );
+
+  // ! Remove Exercise from Workout
+  const removeExercise = (id) => {
+    console.log("angeklickt", id);
+    const updatedWorkoutPlan = workoutPlan.filter(
+      (exercise) => exercise.id !== id
+    );
+    setWorkoutPlan(updatedWorkoutPlan);
+  };
 
   return (
     <section className="new-workout">
@@ -24,130 +40,49 @@ const NewWorkout = () => {
         </Button>
       </article>
       <div>
-        <Accordion className="accordion">
-          <AccordionSummary expandIcon={<ExpandMoreIcon />} id="panel1a-header">
-            <div className="content-acc">
-              <p className="name">Air bike</p>
-              <div className="sm-line"></div>
-              <p>Repetition 4 x 15</p>
-              <div className="sm-line"></div>
-              <p className="muscle">Abs</p>
-            </div>
-            <Button variant="outlined">Remove</Button>
-          </AccordionSummary>
-          <AccordionDetails>
-            <article className="acc-visib">
-              <div>
-                <h6>Instructions:</h6>
-                <ul>
-                  <li>
-                    <p className="num">1</p>
-                    <p>
-                      Sunder your shoulders and your knees directly under your
-                      hips.
-                    </p>
-                  </li>
-                  <li>
-                    <p className="num">1</p>
-                    <p>Start on all fours with your hands directly</p>
-                  </li>
-                  <li>
-                    <p className="num">1</p>
-                    <p>Start on all fours with your hands directly</p>
-                  </li>
-                </ul>
+        {/* {workoutPlan?.map((item, index) => (
+          <Accordion key={index} className="accordion">
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              id="panel1a-header"
+            >
+              <div className="content-acc">
+                <p>{index + 1}</p>
+                <p className="name">{item.name}</p>
+                <div className="sm-line"></div>
+                <p>Repetition 4 x 15</p>
+                <div className="sm-line"></div>
+                <p className="muscle">{item.target}</p>
               </div>
+              <Button
+                onClick={() => removeExercise(item.id)}
+                variant="outlined"
+              >
+                Remove
+              </Button>
+            </AccordionSummary>
+            <AccordionDetails>
+              <article className="acc-visib">
+                <div>
+                  <h6>Instructions:</h6>
+                  <ul>
+                    {item.instructions.map((item, index) => (
+                      <li>
+                        <p className="num">{index + 1}</p>
+                        <p>{item}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              <img
-                src="https://raw.githubusercontent.com/MarzioCostantini/AllImgRepo/main/PsDLD7dmJxQttF.gif"
-                alt="Fitness gif"
-              />
-            </article>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion className="accordion">
-          <AccordionSummary expandIcon={<ExpandMoreIcon />} id="panel1a-header">
-            <div className="content-acc">
-              <p className="name">Air bike</p>
-              <div className="sm-line"></div>
-              <p>Repetition 4 x 15</p>
-              <div className="sm-line"></div>
-              <p className="muscle">Abs</p>
-            </div>
-            <Button variant="outlined">Remove</Button>
-          </AccordionSummary>
-          <AccordionDetails>
-            <article className="acc-visib">
-              <div>
-                <h6>Instructions:</h6>
-                <ul>
-                  <li>
-                    <p className="num">1</p>
-                    <p>
-                      Sunder your shoulders and your knees directly under your
-                      hips.
-                    </p>
-                  </li>
-                  <li>
-                    <p className="num">1</p>
-                    <p>Start on all fours with your hands directly</p>
-                  </li>
-                  <li>
-                    <p className="num">1</p>
-                    <p>Start on all fours with your hands directly</p>
-                  </li>
-                </ul>
-              </div>
-
-              <img
-                src="https://raw.githubusercontent.com/MarzioCostantini/AllImgRepo/main/PsDLD7dmJxQttF.gif"
-                alt="Fitness gif"
-              />
-            </article>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion className="accordion">
-          <AccordionSummary expandIcon={<ExpandMoreIcon />} id="panel1a-header">
-            <div className="content-acc">
-              <p className="name">Air bike</p>
-              <div className="sm-line"></div>
-              <p>Repetition 4 x 15</p>
-              <div className="sm-line"></div>
-              <p className="muscle">Abs</p>
-            </div>
-            <Button variant="outlined">Remove</Button>
-          </AccordionSummary>
-          <AccordionDetails>
-            <article className="acc-visib">
-              <div>
-                <h6>Instructions:</h6>
-                <ul>
-                  <li>
-                    <p className="num">1</p>
-                    <p>
-                      Sunder your shoulders and your knees directly under your
-                      hips.
-                    </p>
-                  </li>
-                  <li>
-                    <p className="num">1</p>
-                    <p>Start on all fours with your hands directly</p>
-                  </li>
-                  <li>
-                    <p className="num">1</p>
-                    <p>Start on all fours with your hands directly</p>
-                  </li>
-                </ul>
-              </div>
-
-              <img
-                src="https://raw.githubusercontent.com/MarzioCostantini/AllImgRepo/main/PsDLD7dmJxQttF.gif"
-                alt="Fitness gif"
-              />
-            </article>
-          </AccordionDetails>
-        </Accordion>
+                <img src={`${item.gifUrl}.gif`} alt="Fitness gif" />
+              </article>
+            </AccordionDetails>
+          </Accordion>
+        ))} */}
       </div>
+
+      <CollapsibleTable workoutPlan={workoutPlan} />
     </section>
   );
 };

@@ -1,0 +1,19 @@
+table td,
+th {
+  font-size: 14px !important;
+}
+
+.muscle p {
+  background-color: var(--main-light);
+  color: var(--main-color);
+  padding: 5px 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+.muscle p::first-letter {
+  text-transform: uppercase;
+}
+
+.name::first-letter {
+  text-transform: uppercase;
+}

@@ -17,7 +17,7 @@ const Modal = ({ setOpen, modalData, setSavedStorage }) => {
     const favÜbung = exercise.map((item) =>
       item.id === id ? { ...item, favorite: !item.favorite } : item
     );
-    console.log("klick", favÜbung);
+
     // Aktualisieren des States und des lokalen Speichers und des Context
     setSavedStorage(favÜbung);
     setExercise(favÜbung);

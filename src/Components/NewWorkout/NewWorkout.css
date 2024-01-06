@@ -76,13 +76,6 @@
   margin-right: 30px;
 }
 
-.muscle {
-  background-color: var(--main-light);
-  color: var(--main-color);
-  padding: 0 20px;
-  border-radius: 10px;
-}
-
 .acc-visib {
   display: flex;
   align-items: center;

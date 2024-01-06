@@ -15,14 +15,13 @@ import { Button, InputAdornment, TextField } from "@mui/material";
 
 const NewWorkoutFilter = () => {
   const { exercise, setExercise } = useContext(FetchContext);
-  const { workoutPlans, setWorkoutPlans } = useContext(WorkoutPlansContext);
+  const { workoutPlan, setWorkoutPlan } = useContext(WorkoutPlansContext);
   const [tabValue, setTabValue] = useState("all");
   const [searchInput, setSearchInput] = useState("");
   const [loadetItem, setLoadetItem] = useState(25);
   const [searchData, setSeachData] = useState(null);
 
-  // console.log("searchinput ist:", searchInput);
-  // console.log("serachdata ist:", searchData);
+  console.log("workoutplans", workoutPlan);
 
   // ! Tabs
   const handleChange = (event, value) => {
@@ -36,6 +35,15 @@ const NewWorkoutFilter = () => {
     );
     setSeachData(filteredData);
   }, [searchInput]);
+
+  // ! Add to Workoutplan
+  const addToWorkout = (id) => {
+    const selectedItem = exercise?.find((item) => item.id === id);
+
+    console.log("id ", id);
+    console.log("selectedItem ", selectedItem);
+    setWorkoutPlan([...workoutPlan, selectedItem]);
+  };
 
   return (
     <section className="newWoFilter">
@@ -88,7 +96,12 @@ const NewWorkoutFilter = () => {
                         <p className="item-name">{item.name}</p>
                         <div key={index}>
                           {/* <Button variant="outlined">View</Button> */}
-                          <Button variant="contained">Add</Button>
+                          <Button
+                            onClick={() => addToWorkout(item.id)}
+                            variant="contained"
+                          >
+                            Add
+                          </Button>
                         </div>
                       </div>
                     ))
@@ -100,7 +113,12 @@ const NewWorkoutFilter = () => {
                         <p className="item-name">{item.name}</p>
                         <div key={index}>
                           {/* <Button variant="outlined">View</Button> */}
-                          <Button variant="contained">Add</Button>
+                          <Button
+                            onClick={() => addToWorkout(item.id)}
+                            variant="contained"
+                          >
+                            Add
+                          </Button>
                         </div>
                       </div>
                     ))}

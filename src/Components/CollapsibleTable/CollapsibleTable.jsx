@@ -24,21 +24,15 @@ function Row(props) {
   const { workoutPlan, setWorkoutPlan } = useContext(WorkoutPlansContext);
 
   const removeExercise = (index) => {
-    console.log("das is der index", index);
-    // const updatedWorkoutPlan = workoutPlan.filter(
-    //   (exercise) => exercise.id !== id
-    // );
-    // setWorkoutPlan(updatedWorkoutPlan);
-
     const updatedWorkoutPlan = [...workoutPlan];
     updatedWorkoutPlan.splice(index, 1);
     setWorkoutPlan(updatedWorkoutPlan);
   };
 
   return (
-    <React.Fragment>
+    <React.Fragment className="table">
       <TableRow>
-        <TableCell>
+        <TableCell className="icon-btn">
           <IconButton
             aria-label="expand row"
             size="small"
@@ -47,7 +41,7 @@ function Row(props) {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component="td" scope="row">
+        <TableCell className="num-ex" component="td" scope="row">
           {index + 1}
         </TableCell>
         <TableCell className="name">{row.name}</TableCell>
@@ -65,16 +59,22 @@ function Row(props) {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
-              <Typography variant="p" gutterBottom component="div">
-                History
-              </Typography>
               <Table size="small" aria-label="purchases">
-                <TableHead>
-                  <TableRow>
-                    <h1>HALLO</h1>
-                  </TableRow>
-                </TableHead>
-                <TableBody>CONTENT</TableBody>
+                <article className="acc-visib">
+                  <div>
+                    <h6>Instructions:</h6>
+                    <ul>
+                      {row.instructions.map((item, index) => (
+                        <li>
+                          <p className="num">{index + 1}</p>
+                          <p>{item}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <img src={`${row.gifUrl}.gif`} alt="Fitness gif" />
+                </article>
               </Table>
             </Box>
           </Collapse>
@@ -86,24 +86,27 @@ function Row(props) {
 
 export default function CollapsibleTable({ workoutPlan }) {
   return (
-    <TableContainer component={Paper}>
-      <Table aria-label="collapsible table">
-        <TableHead>
-          <TableRow>
-            <TableCell />
-            <TableCell>#</TableCell>
-            <TableCell>Exercise</TableCell>
-            <TableCell>Repetitions</TableCell>
-            <TableCell>Muscle</TableCell>
-            <TableCell align="right">Options</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {workoutPlan.map((row, index) => (
-            <Row index={index} row={row} />
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <section>
+      <TableContainer component={Paper}>
+        <Table aria-label="collapsible table">
+          <TableHead>
+            <TableRow>
+              <TableCell />
+              <TableCell>#</TableCell>
+              <TableCell>Exercise</TableCell>
+              <TableCell>Repetitions</TableCell>
+              <TableCell>Muscle</TableCell>
+              <TableCell align="right">Options</TableCell>
+            </TableRow>
+          </TableHead>
+
+          <TableBody>
+            {workoutPlan.map((row, index) => (
+              <Row index={index} row={row} />
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </section>
   );
 }

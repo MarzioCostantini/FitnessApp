@@ -3,6 +3,11 @@ th {
   font-size: 14px !important;
 }
 
+.table .css-i4bv87-MuiSvgIcon-root {
+  width: 100px !important;
+  height: 100px !important;
+}
+
 .muscle p {
   background-color: var(--main-light);
   color: var(--main-color);
@@ -14,6 +19,68 @@ th {
   text-transform: uppercase;
 }
 
+.name {
+  width: 250px;
+}
+
 .name::first-letter {
   text-transform: uppercase;
+}
+
+.acc-visib {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.acc-visib img {
+  max-width: 180px;
+}
+
+.acc-visib li {
+  margin-bottom: 10px;
+
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.acc-visib li p {
+  font-size: 14px !important;
+}
+
+.acc-visib ul {
+  max-width: 90%;
+}
+.acc-visib .num {
+  background-color: var(--main-light);
+  color: var(--main-color);
+  height: 25px;
+  min-width: 25px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -3px;
+}
+
+.acc-visib h6 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.icon-btn {
+  width: 50px;
+}
+
+.icon-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.num-ex {
+  width: 50px;
 }

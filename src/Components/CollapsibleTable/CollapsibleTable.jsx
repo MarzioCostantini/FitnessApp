@@ -30,7 +30,7 @@ function Row(props) {
   };
 
   return (
-    <React.Fragment className="table">
+    <React.Fragment>
       <TableRow>
         <TableCell className="icon-btn">
           <IconButton
@@ -45,7 +45,10 @@ function Row(props) {
           {index + 1}
         </TableCell>
         <TableCell className="name">{row.name}</TableCell>
-        <TableCell> 3 x 15</TableCell>
+        <TableCell>
+          {" "}
+          {row.sets} x {row.repetitions}
+        </TableCell>
         <TableCell className="muscle">
           <p>{row.target}</p>
         </TableCell>
@@ -64,8 +67,8 @@ function Row(props) {
                   <div>
                     <h6>Instructions:</h6>
                     <ul>
-                      {row.instructions.map((item, index) => (
-                        <li>
+                      {row.instructions?.map((item, index) => (
+                        <li key={index}>
                           <p className="num">{index + 1}</p>
                           <p>{item}</p>
                         </li>
@@ -101,8 +104,8 @@ export default function CollapsibleTable({ workoutPlan }) {
           </TableHead>
 
           <TableBody>
-            {workoutPlan.map((row, index) => (
-              <Row index={index} row={row} />
+            {workoutPlan?.map((row, index) => (
+              <Row key={index} index={index} row={row} />
             ))}
           </TableBody>
         </Table>

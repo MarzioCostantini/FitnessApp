@@ -2,6 +2,7 @@ import "./NewWorkoutFilter.css";
 import { FetchContext } from "../../Context/Context";
 import { WorkoutPlansContext } from "../../Context/Context";
 import { useContext, useEffect, useState } from "react";
+import ModalRepetitions from "../ModalRepetitions/ModalRepetitions";
 
 // MUI
 import Box from "@mui/material/Box";
@@ -20,8 +21,8 @@ const NewWorkoutFilter = () => {
   const [searchInput, setSearchInput] = useState("");
   const [loadetItem, setLoadetItem] = useState(25);
   const [searchData, setSeachData] = useState(null);
-
-  console.log("workoutplans", workoutPlan);
+  const [open, setOpen] = useState(false);
+  const [exercisModal, setExerciseModal] = useState(null);
 
   // ! Tabs
   const handleChange = (event, value) => {
@@ -35,15 +36,6 @@ const NewWorkoutFilter = () => {
     );
     setSeachData(filteredData);
   }, [searchInput]);
-
-  // ! Add to Workoutplan
-  const addToWorkout = (id) => {
-    const selectedItem = exercise?.find((item) => item.id === id);
-
-    console.log("id ", id);
-    console.log("selectedItem ", selectedItem);
-    setWorkoutPlan([...workoutPlan, selectedItem]);
-  };
 
   return (
     <section className="newWoFilter">
@@ -97,7 +89,10 @@ const NewWorkoutFilter = () => {
                         <div key={index}>
                           {/* <Button variant="outlined">View</Button> */}
                           <Button
-                            onClick={() => addToWorkout(item.id)}
+                            onClick={() => {
+                              setOpen(true);
+                              setExerciseModal(item);
+                            }}
                             variant="contained"
                           >
                             Add
@@ -114,7 +109,10 @@ const NewWorkoutFilter = () => {
                         <div key={index}>
                           {/* <Button variant="outlined">View</Button> */}
                           <Button
-                            onClick={() => addToWorkout(item.id)}
+                            onClick={() => {
+                              setOpen(true);
+                              setExerciseModal(item);
+                            }}
                             variant="contained"
                           >
                             Add
@@ -141,6 +139,9 @@ const NewWorkoutFilter = () => {
           </TabContext>
         </Box>
       </div>
+      {open && (
+        <ModalRepetitions setOpen={setOpen} exercisModal={exercisModal} />
+      )}
     </section>
   );
 };

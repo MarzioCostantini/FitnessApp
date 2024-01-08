@@ -1,0 +1,63 @@
+.modal-wrapper-reps {
+  background-color: rgba(0, 0, 0, 0.712);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: 0.5;
+  z-index: 10;
+}
+
+.modal-wrapper-reps article {
+  background-color: white;
+  width: 50vw;
+  min-height: 50vh;
+  padding: 30px 60px;
+  border-radius: 30px;
+  position: relative;
+}
+
+.modal-wrapper-reps h4 {
+  margin-bottom: 30px;
+}
+
+.close-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close-btn svg {
+  width: 40px;
+  height: 40px;
+  fill: var(--text-light);
+}
+
+.wdh {
+  display: flex;
+  align-items: center;
+
+  justify-content: flex-start;
+  gap: 30px;
+}
+
+.modal-wrapper-reps .wdh input {
+  width: 150px;
+}
+
+.modal-wrapper-reps .save-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.modal-wrapper-reps label {
+  font-size: 14px;
+}

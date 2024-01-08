@@ -33,7 +33,8 @@ function App() {
   const [workoutPlan, setWorkoutPlan] = useState([]);
   const [allWorkoutPlans, setAllWorkoutPlans] = useState([]);
 
-  console.log(theme);
+  console.log("workoutplan ", workoutPlan);
+
   const themee = createTheme({
     palette: {
       primary: {

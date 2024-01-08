@@ -23,20 +23,20 @@ const NewWorkout = () => {
     AllWorkoutPlansContext
   );
 
-  // ! Remove Exercise from Workout
-  const removeExercise = (id) => {
-    console.log("angeklickt", id);
-    const updatedWorkoutPlan = workoutPlan.filter(
-      (exercise) => exercise.id !== id
-    );
-    setWorkoutPlan(updatedWorkoutPlan);
-  };
-
   return (
     <section className="new-workout">
       <article className="hero">
-        <TextField id="standard-basic" label="Name" variant="outlined" />
-        <Button variant="contained" startIcon={<SaveRoundedIcon />}>
+        <TextField
+          disabled={workoutPlan.length === 0}
+          id="standard-basic"
+          label="Name"
+          variant="outlined"
+        />
+        <Button
+          disabled={workoutPlan.length === 0}
+          variant="contained"
+          startIcon={<SaveRoundedIcon />}
+        >
           Save Plan
         </Button>
       </article>

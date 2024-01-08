@@ -124,6 +124,10 @@ span {
   font-weight: bold;
 }
 
+.noDataHere {
+  font-size: clamp(1.4rem, 2.6vw, 26rem);
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: repeat(12, 1fr);

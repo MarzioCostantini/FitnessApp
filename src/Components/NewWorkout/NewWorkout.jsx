@@ -14,6 +14,7 @@ import { Alert, Button, Snackbar, Stack, TextField } from "@mui/material";
 import Table from "../CollapsibleTable/CollapsibleTable";
 import CollapsibleTable from "../CollapsibleTable/CollapsibleTable";
 import AddExerciseNoData from "../AddExerciseNoData/AddExerciseNoData";
+import { useNavigate } from "react-router-dom";
 
 const NewWorkout = () => {
   const [workoutName, setWorkoutName] = useState("");
@@ -24,11 +25,14 @@ const NewWorkout = () => {
   const { allWorkoutPlans, setAllWorkoutPlans } = useContext(
     AllWorkoutPlansContext
   );
+
   const [openSuccess, setOpenSuccess] = useState(false);
   const [errorOpen, setErrorOpen] = useState(false);
 
   console.log("allWorkoutPlans ", allWorkoutPlans);
   console.log("workoutPlan ", workoutPlan);
+
+  let navigate = useNavigate();
 
   // ! Alert
   // Sucess
@@ -51,10 +55,17 @@ const NewWorkout = () => {
     if (workoutName !== "") {
       let exercises = [...workoutPlan];
 
+      // Get date
+      let date = new Date();
+      let day = date.getDate();
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+      let currentDate = `${day}.${month}.${year}`;
+
       const newWorkout = {
         exercises,
         name: workoutName,
-        date: new Date(),
+        date: currentDate.toString(),
         id: uuidv4(),
         url: workoutName.toLowerCase().replaceAll(" ", "-"),
       };
@@ -72,6 +83,9 @@ const NewWorkout = () => {
       setWorkoutPlan([]);
       // Resetet name
       setWorkoutName("");
+
+      // Rederectet zu my Workouts
+      navigate("/my-workout");
     } else {
       setErrorOpen(true);
     }
@@ -81,6 +95,7 @@ const NewWorkout = () => {
     <section className="new-workout">
       <article className="hero">
         <TextField
+          inputProps={{ maxLength: 25 }}
           disabled={workoutPlan.length === 0}
           id="standard-basic"
           label="Name"

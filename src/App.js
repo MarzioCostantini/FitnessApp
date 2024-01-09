@@ -114,7 +114,7 @@ function App() {
                           />
                           <Route path="/my-workout" element={<MyWorkouts />} />
                           <Route
-                            path="/workout/:name"
+                            path="/my-workouts/:name"
                             element={<DetailPageWorkout />}
                           />
                         </Routes>

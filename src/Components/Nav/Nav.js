@@ -73,7 +73,7 @@ const Nav = () => {
             {allWorkoutPlans?.map((item, index) => (
               <NavLink
                 key={index}
-                to={`/workout/${item.url}`}
+                to={`/my-workouts/${item.url}`}
                 className="nav-item"
               >
                 <DescriptionRoundedIcon />

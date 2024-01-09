@@ -1,0 +1,72 @@
+.workout-card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2vw;
+}
+
+.workout-card {
+  background: linear-gradient(
+    315deg,
+    rgba(255, 118, 13, 0.823) 0%,
+    rgba(255, 118, 13, 0.697) 50%
+  );
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: all 0.2s;
+  position: relative;
+  color: white;
+  cursor: pointer;
+  min-height: 200px;
+  overflow: hidden;
+}
+
+.workout-card h3 {
+  font-size: 23px;
+  text-transform: uppercase;
+  font-family: CarioBold, Arial, Helvetica, sans-serif;
+
+  width: 100%;
+}
+
+.workout-card:hover {
+  transform: scale(1.05);
+}
+
+.content-card,
+.ex-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.ex-part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ex-number {
+  font-family: CarioBold, Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  margin: -7px;
+  padding: 0;
+}
+
+.circle {
+  position: absolute;
+  top: 0px;
+  right: -140px;
+
+  background-color: rgba(251, 251, 251, 0.116);
+  height: 300px;
+  width: 300px;
+  border-radius: 100%;
+}

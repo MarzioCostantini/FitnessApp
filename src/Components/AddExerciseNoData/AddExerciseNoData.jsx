@@ -4,7 +4,7 @@ import "./AddExerciseNoData.css";
 const AddExerciseNoData = () => {
   return (
     <div className="addExerciseNoData">
-      <h4 className="noDataHere"> Add exercises to your training plan</h4>
+      <h4 className="noDataHere"> Add exercises to your Training plan</h4>
       <UndoRoundedIcon />
     </div>
   );

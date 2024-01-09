@@ -2,6 +2,7 @@ import "./NewWorkout.css";
 import { AllWorkoutPlansContext, FetchContext } from "../../Context/Context";
 import { WorkoutPlansContext } from "../../Context/Context";
 import { useContext, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 // MUI
 import Accordion from "@mui/material/Accordion";
@@ -27,6 +28,7 @@ const NewWorkout = () => {
   const [errorOpen, setErrorOpen] = useState(false);
 
   console.log("allWorkoutPlans ", allWorkoutPlans);
+  console.log("workoutPlan ", workoutPlan);
 
   // ! Alert
   // Sucess
@@ -47,21 +49,29 @@ const NewWorkout = () => {
 
   const createWorkout = () => {
     if (workoutName !== "") {
-      let exercise = [...workoutPlan];
+      let exercises = [...workoutPlan];
 
       const newWorkout = {
-        exercise,
+        exercises,
         name: workoutName,
         date: new Date(),
+        id: uuidv4(),
+        url: workoutName.toLowerCase().replaceAll(" ", "-"),
       };
 
-      const updatedWorkouts = [...allWorkoutPlans];
-      updatedWorkouts.push(newWorkout);
+      // Fügt alter Plan und neu erstellen zusammen
+      const updatedWorkouts = [...allWorkoutPlans, newWorkout];
 
       setAllWorkoutPlans(updatedWorkouts);
-      setWorkoutPlan([]);
-      setWorkoutName("");
       setOpenSuccess(true);
+
+      // Schreibt Daten in Local Storage
+      localStorage.setItem("savedWorkouts", JSON.stringify(updatedWorkouts));
+
+      // Resetet Die tabelle mit den workouts
+      setWorkoutPlan([]);
+      // Resetet name
+      setWorkoutName("");
     } else {
       setErrorOpen(true);
     }
@@ -75,6 +85,7 @@ const NewWorkout = () => {
           id="standard-basic"
           label="Name"
           variant="outlined"
+          error={errorOpen}
           value={workoutName}
           onChange={(e) => setWorkoutName(e.target.value)}
         />
@@ -90,7 +101,7 @@ const NewWorkout = () => {
       <Stack spacing={2} sx={{ width: "100%" }}>
         <Snackbar
           open={openSuccess}
-          autoHideDuration={6000}
+          autoHideDuration={3000}
           onClose={handleClose}
         >
           <Alert
@@ -105,7 +116,7 @@ const NewWorkout = () => {
       <Stack spacing={2} sx={{ width: "100%" }}>
         <Snackbar
           open={errorOpen}
-          autoHideDuration={6000}
+          autoHideDuration={3000}
           onClose={handleCloseError}
         >
           <Alert

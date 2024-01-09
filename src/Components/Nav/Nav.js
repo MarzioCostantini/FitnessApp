@@ -4,7 +4,9 @@ import PlanIcon from "@mui/icons-material/ContentPaste";
 import HiveIcon from "@mui/icons-material/Hive";
 import FitnessCenterRoundedIcon from "@mui/icons-material/FitnessCenterRounded";
 import StarIcon from "@mui/icons-material/Star";
-import NoteAddRoundedIcon from "@mui/icons-material/NoteAddRounded";
+import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
+import DescriptionRoundedIcon from "@mui/icons-material/DescriptionRounded";
+import TaskRoundedIcon from "@mui/icons-material/TaskRounded";
 
 import "./Nav.css";
 
@@ -12,11 +14,15 @@ import { NavLink, Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 
 // Context
-import { FetchContext } from "../../Context/Context";
+import { AllWorkoutPlansContext, FetchContext } from "../../Context/Context";
+import FetchData from "../fetchAllData";
 
 const Nav = () => {
   const [favNum, setFavNum] = useState(null);
   const { exercise } = useContext(FetchContext);
+  const { allWorkoutPlans, setAllWorkoutPlans } = useContext(
+    AllWorkoutPlansContext
+  );
 
   useEffect(() => {
     const filterOb = exercise?.filter((item) => item.favorite === true);
@@ -26,6 +32,7 @@ const Nav = () => {
 
   return (
     <section className="nav-wrapper">
+      <FetchData />
       <div className="top-element">
         <nav>
           <Link to="/" className="logo">
@@ -50,11 +57,32 @@ const Nav = () => {
             </div>
           </NavLink>
           <NavLink to="/new-workout" className="nav-item">
-            <NoteAddRoundedIcon />
+            <AddCircleRoundedIcon />
             <div className="nav-num">
-              <h3>New Workout </h3>
+              <h3>Create New Workout </h3>
             </div>
           </NavLink>
+          <NavLink to="/my-workout" className="nav-item">
+            <TaskRoundedIcon />
+            <div className="nav-num">
+              <h3>My Workout </h3>
+            </div>
+          </NavLink>
+          <div className="line"></div>
+          <section className="plans">
+            {allWorkoutPlans?.map((item, index) => (
+              <NavLink
+                key={index}
+                to={`/workout/${item.url}`}
+                className="nav-item"
+              >
+                <DescriptionRoundedIcon />
+                <div className="nav-num">
+                  <h3>{item.name} </h3>
+                </div>
+              </NavLink>
+            ))}
+          </section>
         </nav>
       </div>
 

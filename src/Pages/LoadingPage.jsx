@@ -14,7 +14,7 @@ const LoadingPage = () => {
   return (
     <section>
       <h1>Fetching datadd..</h1>
-      <FetchData />
+      {/* <FetchData /> */}
     </section>
   );
 };

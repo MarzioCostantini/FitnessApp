@@ -81,7 +81,7 @@ const NewWorkoutFilter = () => {
             <section>
               {tabValue === "all"
                 ? (searchInput !== "" ? searchData : exercise)
-                    .slice(0, loadetItem)
+                    ?.slice(0, loadetItem)
                     .map((item, index) => (
                       <div key={index} className="small-card">
                         <p className="item-name">{item.name}</p>

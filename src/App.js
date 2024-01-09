@@ -21,9 +21,11 @@ import { AllWorkoutPlansContext } from "./Context/Context";
 
 import { createTheme, colors, ThemeProvider } from "@mui/material";
 import Loadingscreen from "./Pages/LoadingPage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MyFavorites from "./Pages/MyFavorites";
 import CreateNewWorkoutPlan from "./Pages/CreateNewWorkoutPlan/CreateNewWorkoutPlan";
+import DetailPageWorkout from "./Pages/DetailPageWorkout/DetailPageWorkout";
+import MyWorkouts from "./Pages/MyWorkouts/MyWorkouts";
 
 function App() {
   // erstellt einen State
@@ -34,6 +36,7 @@ function App() {
   const [allWorkoutPlans, setAllWorkoutPlans] = useState([]);
 
   console.log("workoutplan ", workoutPlan);
+  console.log("allWorkoutPlans App ", allWorkoutPlans);
 
   const themee = createTheme({
     palette: {
@@ -108,6 +111,11 @@ function App() {
                           <Route
                             path="/new-workout"
                             element={<CreateNewWorkoutPlan />}
+                          />
+                          <Route path="/my-workout" element={<MyWorkouts />} />
+                          <Route
+                            path="/workout/:name"
+                            element={<DetailPageWorkout />}
                           />
                         </Routes>
                       </div>

@@ -46,9 +46,9 @@ function Row(props) {
         </TableCell>
         <TableCell className="name">{row.name}</TableCell>
         <TableCell>
-          {" "}
           {row.sets} x {row.repetitions}
         </TableCell>
+        <TableCell>{row.weight}</TableCell>
         <TableCell className="muscle">
           <p>{row.target}</p>
         </TableCell>
@@ -98,6 +98,7 @@ export default function CollapsibleTable({ workoutPlan }) {
               <TableCell>#</TableCell>
               <TableCell>Exercise</TableCell>
               <TableCell>Repetitions</TableCell>
+              <TableCell>Weight</TableCell>
               <TableCell>Muscle</TableCell>
               <TableCell align="right">Options</TableCell>
             </TableRow>

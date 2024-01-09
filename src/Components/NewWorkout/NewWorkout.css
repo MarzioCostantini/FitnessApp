@@ -62,3 +62,17 @@
   width: 2px;
   background-color: var(--light-gray);
 }
+
+/* Alert */
+.MuiSnackbar-root p {
+  font-size: 18px;
+}
+
+.css-frvpmh-MuiPaper-root-MuiAlert-root {
+  align-items: center;
+}
+
+.MuiSnackbar-root button svg {
+  height: 20px;
+  width: 20px;
+}

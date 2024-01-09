@@ -18,13 +18,29 @@
   background-color: white;
   width: 50vw;
   min-height: 50vh;
-  padding: 30px 60px;
+  padding: 30px 60px 100px 60px;
   border-radius: 30px;
   position: relative;
 }
 
+.css-1x51dt5-MuiInputBase-input-MuiInput-input {
+  padding-bottom: 10px;
+}
+
 .modal-wrapper-reps h4 {
   margin-bottom: 30px;
+  font-size: clamp(1.4rem, 3vw, 3.6rem);
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.headline h4 span::first-letter {
+  text-transform: uppercase;
+  background-color: red;
 }
 
 .close-btn {
@@ -49,7 +65,9 @@
 }
 
 .modal-wrapper-reps .wdh input {
+  margin-top: 15px;
   width: 150px;
+  font-size: 16px;
 }
 
 .modal-wrapper-reps .save-btn {
@@ -59,5 +77,5 @@
 }
 
 .modal-wrapper-reps label {
-  font-size: 14px;
+  font-size: 18px;
 }

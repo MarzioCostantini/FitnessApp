@@ -20,7 +20,7 @@ th {
 }
 
 .name {
-  width: 250px;
+  width: 120px;
 }
 
 .name::first-letter {

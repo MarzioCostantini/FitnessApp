@@ -1,14 +1,18 @@
 import "./ModalRepetitions.css";
 import { useContext, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import { Button, TextField } from "@mui/material";
+import { Button, InputAdornment, TextField } from "@mui/material";
 import LoopRoundedIcon from "@mui/icons-material/LoopRounded";
 import SaveRoundedIcon from "@mui/icons-material/SaveRounded";
 import { WorkoutPlansContext } from "../../Context/Context";
+import { AccountCircle } from "@mui/icons-material";
+import FitnessCenterRoundedIcon from "@mui/icons-material/FitnessCenterRounded";
+import RepeatRoundedIcon from "@mui/icons-material/RepeatRounded";
 
 const ModalRepetitions = ({ setOpen, exercisModal }) => {
   const [sets, setSets] = useState("");
   const [repetitions, setRepetition] = useState("");
+  const [weight, setWeight] = useState("");
   const { workoutPlan, setWorkoutPlan } = useContext(WorkoutPlansContext);
 
   console.log("sets", sets, " Reps:", repetitions);
@@ -17,20 +21,17 @@ const ModalRepetitions = ({ setOpen, exercisModal }) => {
   //   ! Add to Workout Plan Funktion
   const save = () => {
     setOpen(false);
-    // Add sets/ Reps to data
 
-    // Erstellen Sie ein neues Übungsobjekt mit den Sets und Wiederholungen
     const newExercise = {
-      ...exercisModal, // Kopieren Sie alle vorhandenen Eigenschaften aus dem exerciseModal
-      sets: sets, // Fügen Sie die Anzahl der Sets hinzu
-      repetitions: repetitions, // Fügen Sie die Anzahl der Wiederholungen hinzu
+      ...exercisModal,
+      sets: sets,
+      repetitions: repetitions,
+      weight: weight,
     };
 
-    // Fügen Sie das neue Übungsobjekt zum bestehenden workoutPlan hinzu
-    const updatedPlan = [...workoutPlan]; // Kopieren Sie den vorhandenen Plan, um ihn nicht zu überschreiben
-    updatedPlan.push(newExercise); // Fügen Sie das neue Übungsobjekt hinzu
+    const updatedPlan = [...workoutPlan];
+    updatedPlan.push(newExercise);
 
-    // Setzen Sie den aktualisierten Plan im Context
     setWorkoutPlan(updatedPlan);
   };
 
@@ -39,25 +40,56 @@ const ModalRepetitions = ({ setOpen, exercisModal }) => {
       <article>
         <div>
           <div className="headline">
-            <h4>Add Repetitions to {exercisModal.name}</h4>
+            <h4>
+              Add Repetitions & Weights by <br />
+              <span>{exercisModal.name}</span>
+            </h4>
           </div>
+
           <div className="wdh">
             <TextField
               type="number"
               id="standard-basic"
               label="Sets"
-              variant="outlined"
+              variant="standard"
               value={sets}
               onChange={(e) => setSets(Number(e.target.value))}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <RepeatRoundedIcon />
+                  </InputAdornment>
+                ),
+              }}
             />
-            <LoopRoundedIcon />
             <TextField
               type="number"
               id="standard-basic"
               label="Repetitions "
-              variant="outlined"
+              variant="standard"
               value={repetitions}
               onChange={(e) => setRepetition(Number(e.target.value))}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <RepeatRoundedIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <TextField
+              id="standard-basic"
+              label="Weight "
+              variant="standard"
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <FitnessCenterRoundedIcon />
+                  </InputAdornment>
+                ),
+              }}
             />
           </div>
           <div onClick={() => setOpen(false)} className="close-btn">

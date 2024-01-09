@@ -68,7 +68,6 @@ const NewWorkoutFilter = () => {
                 style: {
                   fontSize: "14px", //
                   marginBottom: "15px",
-                  // Schriftgröße auf 14px setzen
                 },
               }}
               sx={{

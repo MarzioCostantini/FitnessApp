@@ -40,7 +40,7 @@ const Nav = () => {
           </NavLink>
           <NavLink to="/exercises" className="nav-item">
             <FitnessCenterRoundedIcon />
-            <h3>All Exercisesd</h3>
+            <h3>All Exercises</h3>
           </NavLink>
           <NavLink to="/my-favorites" className="nav-item">
             <StarIcon />
